@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+		<div style="width: 55%;">
+			<form action="" id="Registro_pago_cm" method="POST">
+				{% csrf_token %}
+				<div id="formulario">
+					<h1>Registrar Pago</h1>
+				</div>
+				<div class="central">
+					<div class="boxdere">
+						<label for="n_ficha">Numero de Ficha</label>
+						<label for="apellido">fc9383083</label>
+
+						<label for="rut_cliente">Buscar cliente</label>
+						<input placeholder="Incerte rut cliente" name="rutcli" type="text"     id="tabla">
+
+						<label for="nombre">Nombre</label>
+						<input placeholder="Ingrese su nombre..." name="fnombre" type="text"     id="tabla">
+			
+						<label for="apellido">Apellido</label>
+						<input placeholder="Escriba su e-mail" name="apellido" type="text" id="tabla">
+	
+					</div>
+					
+					<div class="boxizquie">
+						<label for="numero_pago">Numero de pago:</label>
+						<label for="num_pago">209820928</label>
+
+						<label for="fecha_fiado">Fecha Fiado</label>
+						<input  name="fefiado" type="date" id="tabla">
+
+						<label for="fecha_pago">Fecha Pago</label>
+						<input  name="fepago" type="date" id="tabla">
+
+						<label for="abono">Abonar Otro Monto</label>
+						<input name="montoabono" type="text" id="tabla">
+
+						<label for="abono">Monto Total</label>
+						<input name="deudatotal" type="text" id="tabla">						
+					</div>
+				</div>
+				<center>
+				<button name="registro" type="submit" id="button" >Pagar</button>
+				</center>
+			</div>
+			</form>
+{% endblock %}

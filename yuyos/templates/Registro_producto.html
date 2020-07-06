@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+		<div style="width: 55%;">
+			<form action="" id="Registro_producto" method="POST">
+				{% csrf_token %}
+				<div id="formulario">
+					<h1>Registrar Producto</h1>
+				</div>
+				<div class="central">
+					<div class="boxdere">
+						<label for="n_ficha">Codigo Producto</label>
+						<input placeholder="Incerte codigo" name="codproducto" type="number"     id="tabla">
+
+						<label for="rut_cliente">Nombre Producto</label>
+						<input placeholder="Incerte nombre" name="nomprodu" type="text"     id="tabla">
+
+						<label for="nombre">Fecha Vencimiento</label>
+						<input  name="fechavencimiento" type="date"     id="tabla">
+			
+						<label for="tipo">Tipo Producto</label>
+						<input placeholder="Escriba tipo del Producto" name="tipoproducto" type="text" id="tabla">
+	
+					</div>
+					
+					<div class="boxizquie">
+						<label for="razons">Razon Social Proveedor</label>
+						<input name="razonsocialprov" type="text" id="rsocial">
+
+						<label for="nomprov">Nombre Proveedor</label>
+						<select name="cbonombre" id="cbonombre" onclick="dobledato()" > 
+							<opcion value="">Seleccionar</opcion>
+							{% for p in prov %}
+							<option value="{{p.razon_social}}">{{p.nombre_prov}}</option>
+							{% endfor %}
+						</select>
+
+						<label for="preciounitario">Precio Unitario</label>
+						<input name="punitario" type="number" id="tabla">					
+					</div>
+				</div>
+				<center>
+				<button name="registrar" type="submit" id="button" >Guardar</button>
+				</center>
+			</div>
+			</form>
+{% endblock %}

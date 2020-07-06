@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+            <div class="pedido">
+                <section id="portfolio">
+                    <div class="project">
+                      <img class="project__image" src="{% static 'img/cliente.png' %}" />
+                      <p>Clientes</p>
+                      <div class="grid__overlay">
+                        <button class="viewbutton">Pagar pendientes</button>
+                        <button class="viewbutton"><a href="{% url 'Registro_pago_cm' %}">Registrar Cliente</a></button>
+                      </div>
+                    </div>
+                    
+                    <div class="project">
+                      <img class="project__image" src="{% static 'img/venta.png' %}" />
+                      <p>VENTAS</p>
+                      <div class="grid__overlay">
+                        <button class="viewbutton">view more</button>
+                      </div>
+                    </div>
+                    
+                    <div class="project">
+                      <img class="project__image" src="{% static 'img/proveedor.png' %}" />
+                      <p>PROVEEDORES</p>
+                      <div class="grid__overlay">
+                        <button class="viewbutton"><a style="text-decoration: none;" href="registar_proveedor.html">Proveedor</a></button>
+                      </div>
+                    </div>
+                    
+                    <div class="project">
+                      <img class="project__image" src="{% static 'img/stock.png' %}" />
+                      <p>PEDIDOS</p>
+                      <div class="grid__overlay">
+                        <button class="viewbutton"><a href="{% url 'Registro_producto'%}">Registrar Producto</a></button>
+                        <button class="viewbutton">Enviar a proveedor</button>
+                        <button class="viewbutton">Recepcionar despacho</button>
+                      </div>
+                    </div>
+                  </section>
+
+            </div>
+{% endblock %}
