@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static%}
+{% block contenido%}
+
+<div id=formulario>
+    <h1>Ver Proveedores</h1>  
+</div>
+    <table style="font-family:sans-serif ">
+    <tr>
+        <th>Razon Social</th>
+        <th>Nombre Proveedor</th>
+        <th>Nombre Representante</th>
+        <th>Apellido Representante</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>Rubro</th>
+    </tr>
+    {% for a in Prove %}
+    <tr>
+        <td> {{a.razon_social}} </td>
+        <td> {{a.nombre_prov}} </td>
+        <td> {{a.Nombre_Representante}} </td>
+        <td> {{a.Representante_Apellido}} </td>
+        <td> {{a.direccion}} </td>
+        <td> {{a.telefono}} </td>
+        <td> {{a.correo}} </td>
+        <td> {{a.rubro}} </td>
+        <td style="font-family:sans-serif ">
+            <a href=" {% url 'Eliminar_proveedor' a.razon_social %} " >Eliminar</a><br>
+            <a href=" {% url 'Modificar_proveedor' a.razon_social %} ">Modificar</a>
+          </td>
+    {% endfor %}
+    </tr>
+    </table> 
+    <center>
+        <button name="registrar" href=index.html type="submit" id="button" >Volver</button>
+    </center>
+{% endblock %}

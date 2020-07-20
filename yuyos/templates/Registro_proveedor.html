@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+		<div style="width: 55%;">
+			<form action="" id="Registro_proveedor" method="POST">
+				{% csrf_token %}
+				<div id="formulario">
+					<h1>Registrar Proveedor</h1>
+				</div>
+				<div class="central">
+					<div class="boxdere">
+						<label for="razon_social">Razon Social</label>
+						<input placeholder="Inserte codigo" name="razon_social" type="number"     id="tabla">
+
+						<label for="nombre_prov">Nombre Proveedor</label>
+						<input placeholder="Inserte nombre" name="nombre_prov" type="text"     id="tabla">
+
+						<label for="Nombre_Representante">Nombre Representante</label>
+						<input  name="Nombre_Representante" type="text"     id="tabla">
+			
+						<label for="Representante_Apellido">Apellido Representante</label>
+						<input placeholder="Escriba tipo del Producto" name="Representante_Apellido" type="text" id="tabla">
+	
+					</div>
+					
+					<div class="boxizquie">
+						<label for="direccion">Direccion</label>
+						<input name="direccion" type="text" id="rsocial">
+
+						<label for="telefono">Telefono</label>
+                        <input name="telefono" type="number" id="rsocial">
+                        
+                        <label for="correo">Correo</label>
+						<input name="correo" type="text" id="rsocial">
+
+						<label for="rubro">Rubro</label>
+						<input name="rubro" type="number" id="tabla">					
+					</div>
+				</div>
+				<center>
+				<button name="registrar" type="submit" id="button" >Guardar</button>
+				</center>
+			</div>
+			</form>
+{% endblock %}
