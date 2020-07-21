@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<div style="width: 55%;">
+    <form action="" id="Registro_producto" method="POST">
+        {% csrf_token %}
+        <div id="formulario">
+            <h1>Registro de Orden</h1>
+        </div>
+        <div class="central">
+            <center>
+            <label >Buscar pedido</label>
+            <input placeholder="Digite numero de orden" name="codigo_orden" type="number"     id="tabla">
+            </center>
+        </div>
+        <div>
+            <div class="tbl-header">
+                <thead>
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <th>Cod Producto</th>
+                        <th>Descripcion</th>
+                        <th>P.Unitario</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </table>
+                </thead>
+                
+            </div>
+            
+            <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                        <td><input placeholder="Incerte codigo" name="codproducto" type="number" id="tabla"></td>
+                        <td><input placeholder="Incerte codigo" name="codproducto" type="number" id="tabla"></td>
+                        <td><input placeholder="Incerte codigo" name="codproducto" type="number" id="tabla"></td>
+                        <td><input placeholder="Incerte codigo" name="codproducto" type="number" id="tabla"></td>
+                        <td><input placeholder="Incerte codigo" name="codproducto" type="number" id="tabla"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    </form>
+
+{% endblock %}

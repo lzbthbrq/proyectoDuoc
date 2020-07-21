@@ -71,18 +71,22 @@ class StockProductos(models.Model):
 class Pedidos(models.Model):
     nombre_Proveedor = models.CharField(max_length=50, null=False)
     razon_social_proveedor = models.ForeignKey('Proveedor', on_delete=models.SET_NULL, null=True)
+    codigo_producto = models.ForeignKey('Producto', on_delete=models.SET_NULL, null=True)
     nombre_producto = models.CharField(max_length=40, null=False)
     cantidad_pedida = models.IntegerField(default=0, null=False)
-    monto_pago = models.IntegerField(default=0, null=False)
-    numero_pedido = models.IntegerField(primary_key=True, null=False)
-    fecha_pedido = models.DateField()
-    fecha_entrega = models.DateField()
-    nom_proveedor_representante = models.CharField(max_length=30, null=False)
-    ape_proveedor_representante = models.CharField(max_length=30, null=False)
-    telefono_proveedor = models.IntegerField(null=False)
-
+    precio_unitario = models.IntegerField(default=0, null=False)
+    monto_total = models.IntegerField(default=0, null=False)
+    numero_orden = models.ForeignKey('Orden_Despacho', on_delete=models.SET_NULL, null=True)
+    numero_pedido = models.IntegerField(primary_key=True)
     def __str__(self):
-        return str(self.numero_pedido, self.nombre_producto)
+        return str(self.numero_orden, self.nombre_producto)
+
+class Orden_Despacho(models.Model):
+    codigo = models.CharField(primary_key=True, max_length=15, null=False, unique=True)
+    fecha = models.DateField()
+    responzable = models.ForeignKey('Empleados', on_delete=models.SET_NULL, null=True)
+    def __str__(self):
+        return str(self.codigo, self.fecha, self.responzable)
 
 class Venta(models.Model):
     n_venta = models.IntegerField(primary_key=True, null=False, unique=True)

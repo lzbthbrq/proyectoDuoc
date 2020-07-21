@@ -190,32 +190,35 @@ nav a:hover {
   float: left;
 }
 
-	#formulario{
+#formulario{
   font-family: sans-serif;
   background: #E51818;
   color: white;
-  padding: 5px;
+  padding: 0px;
   text-align: center;
   border-top-left-radius: 19px;
   border-top-right-radius: 19px;
-  border-bottom: 5px solid #F66544;
-  margin-bottom:5px; 
+  border-bottom: 3px solid #F66544;
+  margin-bottom: 5px;
+}
+h1{
+  font-size: 1em;
+  margin: 1.67em 0;
 }
 
 form{
   background-color: white;
-  margin:10px;
-  margin:0 auto;
-  border-radius:19px;
-  width: 58%;
-  /* SECUENCIA: para centrar formulario */
+  margin: 10px;
+  margin: 0 auto;
+  border-radius: 19px;
+  width: 74%;
   position: absolute;
-  top: 50%; 
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* C U E R P O  -------------------------------------------------- */ 
+/*
+ C U E R P O  -------------------------------------------------- */ 
 .registropagocliente{
   background-image: linear-gradient(-90deg,#F1370F, #F4FC00);
 }
@@ -315,8 +318,65 @@ table {
   width: 100%;
 }
 
-th, td {
-  padding: 8px;
+#botonsub{
+  border-bottom-style: ridge;
+  border-bottom-left-radius: inherit;
+  border-color:  rgba(209, 62, 46, 0.9);
+  border-bottom-right-radius: inherit;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+
+.tbl-header{
+  background-color: rgba(255, 255, 255, 0.788); 
+}
+#tablaproducto{
+  overflow: overlay;
+  height: 250px;
+  width: 75%;
+}
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.747);
+}
+
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
   text-align: left;
   border-bottom: 1px solid rgba(209, 62, 46, 0.9);
+  
 }
+td{
+  padding: 8px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(209, 62, 46, 0.9);
+}
+/**/
+#Registro_producto{
+  background-color: white;
+  margin: 7% auto;
+  border-radius: 19px;
+  width: 74%;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+.show {display: block;}

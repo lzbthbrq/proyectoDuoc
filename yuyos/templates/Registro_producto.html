@@ -11,7 +11,7 @@
 				<div class="central">
 					<div class="boxdere">
 						<label for="n_ficha">Codigo Producto</label>
-						<input placeholder="Incerte codigo" name="codproducto" type="number"     id="tabla">
+						<input  name="codproducto" type="number"     id="tabla">
 
 						<label for="rut_cliente">Nombre Producto</label>
 						<input placeholder="Incerte nombre" name="nomprodu" type="text"     id="tabla">
@@ -41,8 +41,50 @@
 					</div>
 				</div>
 				<center>
-				<button name="registrar" type="submit" id="button" >Guardar</button>
+					<div id="tablaproducto">
+						<div class="tbl-header">
+							<thead>
+								<table cellpadding="0" cellspacing="0" border="0">
+									<th>Cod Producto</th>
+									<th>Descripcion</th>
+									<th>Fecha Vencimiento</th>
+									<th>Tipo Producto</th>
+									<th>P.Unitario</th>
+									<th>Opciones</th>
+								</table>
+							</thead>
+							
+						</div>
+						
+						<div class="tbl-content">
+							<table cellpadding="0" cellspacing="0" border="0">
+								<tbody>
+									{%for p in produ %}
+									<tr>
+									<td>{{p.codigo_producto}}</td>	
+									<td>{{p.nombre_producto}}</td>
+									<td>{{p.fecha_vencimiento}}</td>
+									<td>{{p.tipo_producto}}</td>
+									<td>{{p.precio_unitario}}</td>
+									<td>
+									<a href="{% url 'Eliminar_Producto' p.codigo_producto %}">Eliminar</a>
+									<br>
+									<a>Modificar</a>
+									</td>
+								</tr>
+									{%endfor%}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div>
 				</center>
+				
+					<center class="botonsub">
+						<button name="registrar" type="submit" id="button" >Guardar</button>
+					</center>
+					<h1>{{mensaje}}</h1>
+				</div>
 			</div>
 			</form>
 {% endblock %}
