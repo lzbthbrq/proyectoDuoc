@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<div style="width: 55%;">
+    <form >
+        
+        <div id="formulario">
+            <h1>Registro de Orden</h1>
+        </div>
+        <div class="central">
+            <div class="boxdere">              
+                <label>Proveedor</label>
+                <div class="dropdown">
+                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                    <div id="myDropdown" class="dropdown-content">
+                        {% for p in prov %}
+                        <option name="option" onclick="dobledatito()" id="rs" class="show" value="{{p.razon_social}}"><a href="{% url 'oc_pedido' p.razon_social%}">{{p.nombre_prov}}</a></option>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="boxizquie">
+                <label>razon_social</label>
+                <input placeholder="Razon Social" name="razoso" type="number" id="rsocial" value="{{razoso}}" class="form-control">
+                <input type="submit" value="Filtrar">
+
+            </div>
+        </div>
+        <div>
+            <div class="tbl-header">
+                <thead>
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <th>Cod Producto</th>
+                        <th>Descripcion</th>
+                        <th>Fecha Vencimiento</th>
+                        <th>Tipo Producto</th>
+                        <th>P.Unitario</th>
+                    </table>
+                </thead>
+                
+            </div>
+            
+            <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        {%for p in produ %}
+                        <tr>
+                            <td><input  name="codproducto" type="number" id="tabla" value="{{p.codigo_producto}}"></td>	
+								<td><input  name="codproducto" type="text" id="tabla" value="{{p.nombre_producto}}"></td>
+								<td><input  name="codproducto" type="text" id="tabla" value="{{p.fecha_vencimiento}}"></td>
+								<td><input  name="codproducto" type="text" id="tabla" value="{{p.tipo_producto}}"></td>
+								<td><input  name="codproducto" type="number" id="tabla" value="{{p.precio_unitario}}"></td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    </form>
+
+{% endblock %}
