@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+        <div style="width: 55%;">
+            <form action="" id="Cliente_Moroso" method="POST">
+                {% csrf_token %}
+                <div id="formulario">
+                    <h1>Modificar Cliente</h1>
+                </div>
+                <div class="central">
+                    <div class="boxdere">
+                        <label for="rut">Rut</label>
+                        <input name="txtrut" type="txt" id="tabla" value="{{cliente.rut_cliente_moroso}}">
+
+                        <label for="nombre">Primer Nombre</label>
+                        <input name="txtpnombre" type="txt" id="tabla" value="{{cliente.primer_nombre}}">
+
+                        <label for="snombre">Segundo Nombre</label>
+                        <input name="txtsnombre" type="txt" id="tabla" value="{{cliente.segundo_nombre}}">
+
+                        <label for="papellido">Primer Apellido</label>
+                        <input name="txtapellidop" type="txt" id="tabla" value="{{cliente.primer_apellido}}">
+
+                        <label for="mapellido">Segundo Apellido</label>
+                        <input name="txtapellidom" type="txt" id="tabla" value="{{cliente.segundo_apellido}}">
+
+                    </div>
+                    
+                    <div class="boxizquie">
+
+                        <label for="telefono">Telefono</label>
+                        <input name="txttelefono" type="tel" id="tabla" value="{{cliente.telefono}}">
+
+                        <label for="direccion">Direccion</label>
+                        <input name="txtdireccion" type="text" id="tabla" value="{{cliente.direccion}}">
+
+                        <label for="email">Email</label>
+                        <input name="txtemail" type="email" id="tabla" value="{{cliente.email}}">
+
+                        <label for="autorizacion">Autorizacion</label>
+                        <input name="checkautorizacion" type="checkbox" id="tabla" value="{{cliente.autorizacion}}">
+
+                        <label for="NumeroFicha">Número Ficha</label>
+                        {%for ficha in cliente.num_ficha%}
+                        <input value="{{cliente.num_ficha}}" name="txtFicha" type="text" id="tabla">
+                        {%endfor%} 
+
+                    </div>
+                </div>
+                <center>
+                <button name="registro" type="submit" id="button" >Guardar</button>
+                </center>
+                <h1>{{mensaje}}</h1>
+            </div>
+            </form>
+       </div> 
+      
+{% endblock %}
+                        

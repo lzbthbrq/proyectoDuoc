@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+        <div style="width: 55%;">
+            <form action="" id="Cliente_Moroso" method="POST">
+                {% csrf_token %}
+                <div id="formulario">
+                    <h1>Registrar Cliente</h1>
+                </div>
+                <div class="central">
+                    <div class="boxdere">
+
+                        <label for="rut">Rut</label>
+                        <input placeholder="Inserte solo números" name="txtrut" type="txt" id="tabla">
+
+                        <label for="nombre">Primer Nombre</label>
+                        <input placeholder="Inserte Nombre" name="txtpnombre" type="txt" id="tabla">
+
+                        <label for="snombre">Segundo Nombre</label>
+                        <input placeholder="Inserte Nombre" name="txtsnombre" type="txt" id="tabla">
+
+                        <label for="papellido">Primer Apellido</label>
+                        <input placeholder="Inserte Apellido" name="txtapellidop" type="txt" id="tabla">
+
+                        <label for="mapellido">Segundo Apellido</label>
+                        <input placeholder="Inserte Apellido" name="txtapellidom" type="txt" id="tabla">
+
+                    </div>
+                    
+                    <div class="boxizquie">
+
+                        <label for="telefono">Telefono</label>
+                        <input placeholder="Inserte Telefono" name="txttelefono" type="tel" id="tabla">
+
+                        <label for="direccion">Direccion</label>
+                        <input placeholder="Inserte su direccion" name="txtdireccion" type="text" id="tabla">
+
+                        <label for="email">Email</label>
+                        <input placeholder="Ingrese su email..." name="txtemail" type="email" id="tabla">
+
+                        <label for="autorizacion">Autorizacion</label>
+                        <input name="checkautorizacion" type="checkbox" id="tabla">
+
+                        <!--<label for="NumeroFicha">Número Ficha</label>
+                        {%for ficha in cliente.num_ficha%}
+                        <input value="{{cliente.num_ficha}}" name="txtFicha" type="text" id="tabla">
+                        {%endfor%}-->
+
+                    </div>
+                </div>
+                <center>
+                <button name="registro" type="submit" id="button" >Guardar</button>
+                </center>
+            </div>
+            </form>
+
+        <h1>{{mensaje}}</h1>
+{% endblock %}
+                        

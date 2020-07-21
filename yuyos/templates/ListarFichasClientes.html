@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static%}
+{% block contenido%}
+
+<form action="" method="POST" style="width: 80%;">
+<center>
+Buscar Rut: 
+<input type="text" name="Rut" value="{{rut_cliente_moroso}}">
+<input type="submit" value="Filtrar"> 
+
+Buscar Nombre:
+<input type="text" name="nombre" value="{{primer_nombre}}"  >
+<input type="submit" value="Filtrar"> <br><br>
+<a href=" {% url 'RegistrarFicha' %} ">Crear Ficha Cliente</a> |
+<a href="{% url 'RegistroPago' %}">Realizar Abono o Pago</a>
+</center>
+
+<br><br><br>
+{% csrf_token %}
+<div id=formulario >
+    <h1>Ver Deuda Clientes</h1>  
+</div>
+      <table >
+       <th>Rut</th>
+       <th>P.Nombre</th>
+       <th>P.Apellido</th>
+       <th>Deuda</th>
+       <th>Fecha Deuda</th>
+       <th>Fecha a Pagar</th>
+       <th>Número Ficha</th>
+       <th>Accion</th>
+       
+    {% for c in cli %}
+    <tr>
+       <td>{{ c.rut_cliente_moroso }}</td> 
+       <td>{{ c.primer_nombre }}</td> 
+       <td>{{ c.segundo_nombre }}</td>
+       <td>{{ c.apellido_paterno }}</td> 
+       <td>{{ c.apellido_materno }}</td>
+       <td>{{ c.telefono }}</td>
+       <td>{{ c.direccion }}</td>
+       <td>{{ c.email }}</td>
+       <td>
+         <a href=" {% url 'EliminarCliente' c.rut_cliente_moroso %} ">Eliminar</a>
+         <a href=" {% url 'ModificarCliente' c.rut_cliente_moroso %} ">Modificar</a>
+       </td>
+    {% endfor %}
+    </tr>
+    </table> 
+</form>
+</center>
+{% endblock %}
+                        
