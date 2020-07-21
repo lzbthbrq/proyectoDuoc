@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+  <form action="" method="POST" >
+    <div id=formulario>
+      <h1>Ingresa</h1>
+    </div>
+    <div class="central">
+      <div class="boxdere">
+       <center>
+        
+        <label for="usuario">Usuario</label>
+        <input placeholder="Ingrese su usuario" name="Username" type="txt" id="tabla">
+        <label for="password">Usuario</label>
+        <input placeholder="Ingrese su usuario" name="password1" type="password" id="tabla">
+        {% if form.errors %}
+          <p>Su nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.</p>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+           <p>Su cuenta no tiene acceso a esta página. Para proceder,
+              inicie sesión con una cuenta que tenga acceso.</p>
+        {% else %}
+          <p>Inicia sesión para ver esta página.</p>
+        {% endif %}
+        {% endif %}
+       
+        {% csrf_token %}
+        {{form}}
+        </center> 
+        <div>
+           <input type="submit" value="Login"   class="button" >
+        </div>
+      </div> 
+      <div class="boxdere">
+        <center>
+        <a class="link" href="{% url 'RegistroUsuario' %}">¿No tienes una cuenta? </a><br>
+        
+        <a class="link" href="{% url 'index' %}">Volver al inicio </a>
+        </center>
+     </div> 
+    </div>
+  </form>
+{% endblock %}
+

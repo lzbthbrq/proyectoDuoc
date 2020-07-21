@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+        <div style="width: 55%;">
+            <form action="" id="Registro_pago_cm" method="POST">
+                {% csrf_token %}
+                <div id="formulario">
+                    <h1>Registrar Pago</h1>
+                </div>
+                <div class="central">
+                    <div class="boxdere">
+                        <label for="nFicha">Numero de Ficha</label>
+                        <input placeholder="99999AB" name="nFicha" type="text" id="tabla">
+
+                        <label for="rutCliente">Buscar cliente</label>
+                        <input placeholder="Escriba Rut Cliente" name="rutcli" type="text" id="tabla">
+
+                        <label for="nombre">Nombre</label>
+                        <input placeholder="Ingrese Nombre" name="fnombre" type="text" id="tabla">
+            
+                        <label for="apellido">Apellido</label>
+                        <input placeholder="Escriba Apellido" name="apellido" type="text" id="tabla">
+
+                        <label for="Boleta">Codigo Boleta</label>
+                        <input placeholder="Ingrese Codigo Boleta" name="boleta" type="text" id="tabla">
+    
+                    </div>
+                    
+                    <div class="boxizquie">
+                        <label for="numeroPago">Numero de pago</label>
+                        <input placeholder="9999999" name="pago" type="text" id="tabla">
+
+                        <label for="fecha_fiado">Fecha Fiado</label>
+                        <input  name="fefiado" type="date" id="tabla">
+
+                        <label for="fecha_pago">Fecha Pago</label>
+                        <input  name="fepago" type="date" id="tabla">
+
+                        <label for="abono">Monto Total Deuda</label>
+                        <input placeholder= "$" name="deudatotal" type="text" id="tabla">
+
+                        <label for="abono">Monto a Abonar</label>
+                        <input placeholder= "$" name="montoabono" type="text" id="tabla">
+
+                        <label for="final">Monto deuda Final</label>
+                        <input placeholder= "$" name="montofinal" type="text" id="tabla">
+                            
+                    </div>
+                </div>
+                <center>
+                <button name="registro" type="submit" id="button" >Pagar</button>
+                </center>
+            </div>
+            </form>
+{% endblock %}
+   

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<center>
+ <form class="formulario" method="POST" action="{% url 'index' %}" style="width: 50%;background-color: #FFF3D1;">
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div id=formulario>
+      <h1>Registrar</h1>
+    </div>
+    
+     {% csrf_token %}
+   <table>
+        {{ form.as_table }}
+   </table>
+         <button name="registro" type="submit" id="button" >Registrar</button>
+         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+ </form>
+</center>
+{% endblock %}
