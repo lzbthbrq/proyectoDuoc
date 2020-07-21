@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static%}
+{% block contenido%}
+
+<form action="" method="POST" style="width: 80%; position: relative; top: 150px; display:inline-block; text-align:center; font-family:sans-serif ">
+Buscar Rut: 
+{% csrf_token %}
+<input type="text" name="Rut" value="{{rut_cliente_moroso}}">
+<input type="submit" value="Filtrar"> 
+
+Buscar Nombre:
+{% csrf_token %}
+<input type="text" name="nombre" value="{{primer_nombre}}">
+<input type="submit" value="Filtrar">
+
+<a href=" {% url 'RegistroClientes' %} " style="font-family:sans-serif ">Crear Cliente</a>
+
+<table>
+
+  {% for c in cli.rut_cliente_moroso %}
+       <th>Rut</th>
+       <th>P.Nombre</th>
+       <th>S.Nombre</th>
+       <th>P.Apellido</th>
+       <th>S.Apellido</th>
+       <th>Telefono</th>
+       <th>Direccion</th>
+       <th>Email</th>
+       <th>Acción</th>
+    <tr>
+       <td>{{ c.rut_cliente_moroso }}</td> 
+       <td>{{ c.primer_nombre }}</td> 
+       <td>{{ c.segundo_nombre }}</td>
+       <td>{{ c.apellido_paterno }}</td> 
+       <td>{{ c.apellido_materno }}</td>
+       <td>{{ c.telefono }}</td>
+       <td>{{ c.direccion }}</td>
+       <td>{{ c.email }}</td>
+       <td>
+         <a href=" {% url 'EliminarCliente' c.rut_cliente_moroso %} " style="font-family:sans-serif ">Eliminar</a>
+         <a href=" {% url 'ModificarCliente' c.rut_cliente_moroso %} " style="font-family:sans-serif ">Modificar</a>
+       </td> 
+    </tr>
+  {% endfor %}
+
+  {% for c in cli.primer_nombre %}
+    <tr>
+       <td>{{ c.rut_cliente_moroso }}</td> 
+       <td>{{ c.primer_nombre }}</td> 
+       <td>{{ c.segundo_nombre }}</td>
+       <td>{{ c.apellido_paterno }}</td> 
+       <td>{{ c.apellido_materno }}</td>
+       <td>{{ c.telefono }}</td>
+       <td>{{ c.direccion }}</td>
+       <td>{{ c.email }}</td>
+       <td>
+         <a href=" {% url 'EliminarCliente' c.rut_cliente_moroso %} " style="font-family:sans-serif ">Eliminar</a>
+         <a href=" {% url 'ModificarCliente' c.rut_cliente_moroso %} " style="font-family:sans-serif ">Modificar</a>
+       </td> 
+     </tr>
+  {% endfor %}
+   
+    </table> 
+
+</form>
+
+<form action="" method="POST" style="width: 80%;position: relative; top: 350px;display:inline-block; text-align:center;background-color: #FFF3D1">
+{% csrf_token %}
+<div id=formulario>
+    <h1>Ver Clientes</h1>  
+</div>
+      <table style="font-family:sans-serif ">
+       <th>Rut</th>
+       <th>P.Nombre</th>
+       <th>S.Nombre</th>
+       <th>P.Apellido</th>
+       <th>S.Apellido</th>
+       <th>Telefono</th>
+       <th>Direccion</th>
+       <th>Email</th>
+       <th>Acción</th>
+
+    {% for c in cli %}
+    <tr>
+       <td>{{ c.rut_cliente_moroso }}</td> 
+       <td>{{ c.primer_nombre }}</td> 
+       <td>{{ c.segundo_nombre }}</td>
+       <td>{{ c.apellido_paterno }}</td> 
+       <td>{{ c.apellido_materno }}</td>
+       <td>{{ c.telefono }}</td>
+       <td>{{ c.direccion }}</td>
+       <td>{{ c.email }}</td>
+       <td style="font-family:sans-serif ">
+         <a href=" {% url 'EliminarCliente' c.rut_cliente_moroso %} " >Eliminar</a><br>
+         <a href=" {% url 'ModificarCliente' c.rut_cliente_moroso %} ">Modificar</a>
+       </td>
+    {% endfor %}
+    </tr>
+    </table> 
+</form>
+{% endblock %}
+                        

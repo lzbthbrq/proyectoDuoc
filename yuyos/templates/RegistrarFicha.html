@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido%}
+
+        <div style="width: 55%;">
+            <form action="" id="Cliente_Moroso" method="POST">
+                {% csrf_token %}
+                <div id="formulario">
+                    <h1>Crear Ficha del Cliente</h1>
+                </div>
+                <div class="central">
+                    <div class="boxdere">
+
+                        <label for="NumeroFicha">Número Ficha</label>
+                        <input value="{{cliente.num_ficha}}" placeholder="99999AB"name="txtFicha" type="text" id="tabla">
+
+                        <label for="rut">Rut</label>
+                        <input placeholder="Inserte solo números" name="txtrut" type="txt" id="tabla">
+
+                        <label for="nombre">Primer Nombre</label>
+                        <input placeholder="Inserte Nombre" name="txtpnombre" type="txt" id="tabla">
+
+                        <label for="papellido">Primer Apellido</label>
+                        <input placeholder="Inserte Apellido" name="txtapellidop" type="txt" id="tabla">
+
+
+
+                    </div>
+                    
+                    <div class="boxizquie">
+
+                        <label for="monto_deuda">Monto Deuda</label>
+                        <input placeholder="$999999" name="txtdeuda" type="text" id="tabla">
+
+                        <label for="cantidad_pedidos_fiados">Cantidad Pedidos</label>
+                        <input placeholder="Inserte Cantidad" name="txtdcantidad" type="text" id="tabla">
+
+                        <label for="fecha_integracion_cliente">Fecha Integracion</label>
+                        <input placeholder="dd/mm/yyyy" name="txtfechaintegracion" type="date" id="tabla">
+
+                    </div>
+                </div>
+                <center>
+                <button name="registro" type="submit" id="button" >Guardar</button><br>
+                <a href="{% url 'RegistroPago' %}">¿Desea realizar un abono?</a>
+                </center>
+            </div>
+            </form>
+
+        <h1>{{mensaje}}</h1>
+{% endblock %}
+                        
